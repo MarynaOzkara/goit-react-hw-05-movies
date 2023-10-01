@@ -1,28 +1,42 @@
-import { Title } from "components/App.styled";
-import TrendingMovie from "components/TrendingMovie/TrendingMovie";
-import { useEffect } from "react";
-import { getTrendingMovie } from "api/movie-api";
+import { Title } from 'components/App.styled';
+import TrendingMovie from 'components/TrendingMovie/TrendingMovie';
+import { useEffect, useState } from 'react';
+import { getTrendingMovie } from 'api/movie-api';
+import Loader from 'components/Loader/Loader';
 
 const HomePage = () => {
-   useEffect(() => {
-      const fetchMovies = async () => {
-         try {
-            const trendigMovie = await getTrendingMovie();
-            console.log(trendigMovie);
-         } catch {
+  const [trendingMovie, setTrendingMovie] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-         }
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        setIsLoading(true);
+        const movies = await getTrendingMovie();
+        if (!movies.length) {
+          alert('There is no tranding movie!');
+          return;
+        }
+        const moviesArray = movies.map(movie => ({
+          id: movie.id,
+          title: movie.title,
+        }));
+        setTrendingMovie(moviesArray);
+        // console.log(movies);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
       }
-      fetchMovies();
-   })
-   return (
-      <>
-         <Title>Trending today</Title>
-         <TrendingMovie></TrendingMovie>
-         
-      </> 
-
-   )
-   
-}
+    };
+    fetchMovies();
+  }, []);
+  return (
+    <main>
+      <Title>Trending today</Title>
+      {isLoading && <Loader />}
+      <TrendingMovie trendingMovie={trendingMovie} />
+    </main>
+  );
+};
 export default HomePage;
