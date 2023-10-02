@@ -42,7 +42,11 @@ const Cast = () => {
           actors.map(({ cast_id, original_name, character, profile_path }) => (
             <ActorItem key={cast_id}>
               <ActorImg
-                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : `https://place-hold.it/200x300/5b5b5b/ffffff.jpeg&text=Image&fontsize=18`
+                }
                 alt={original_name}
               />
               <InfoList>
