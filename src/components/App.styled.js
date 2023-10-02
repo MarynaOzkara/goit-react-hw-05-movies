@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -27,6 +28,7 @@ export const MainWrap = styled.div`
   border-bottom: 1px solid #5b5b5b;
 `;
 export const AdditionalWrap = styled.div`
+  margin-top: 10px;
   border-bottom: 1px solid #5b5b5b;
 `;
 export const BackBtn = styled.button`
@@ -41,4 +43,16 @@ export const BackBtn = styled.button`
 export const MoviePageWrap = styled.div`
   margin-left: 20px;
   margin-top: 30px;
+`;
+export const MoreLink = styled(Link)`
+  color: #5b5b5b;
+  font-weight: bold;
+  text-decoration: none;
+`;
+export const MovieTitle = styled.h2`
+  margin-bottom: 30px;
+`;
+export const MovieInfo = styled.h3`
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;

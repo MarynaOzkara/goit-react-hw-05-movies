@@ -1,14 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
-import { MovieItem } from './TrendingMovieItem.styled';
+import { useLocation } from 'react-router-dom';
+import { MovieItem, MovieLink } from './TrendingMovieItem.styled';
 
 const TrendingMovieItem = ({ title, id }) => {
   const location = useLocation();
   // console.log(location);
   return (
     <MovieItem>
-      <Link to={`/movies/${id}`} state={location}>
+      <MovieLink to={`/movies/${id}`} state={location}>
         {title}
-      </Link>
+      </MovieLink>
     </MovieItem>
   );
 };

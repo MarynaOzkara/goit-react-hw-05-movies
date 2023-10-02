@@ -1,11 +1,9 @@
 import Cast from './Cast/Cast';
 import Review from './Review/Review';
-// import MoviesPage from 'pages/MoviesPage';
-// import MoviePageById from 'pages/MoviePageById';
 import { Route, Routes } from 'react-router-dom';
 import SheredLayout from './SheredLayout/SheredLayout';
-// import HomePage from 'pages/HomePage';
 import { lazy } from 'react';
+
 const HomePage = lazy(() => import('pages/HomePage/index'));
 const MoviesPage = lazy(() => import('pages/MoviesPage/index'));
 const MoviePageById = lazy(() => import('pages/MoviePageById/index'));

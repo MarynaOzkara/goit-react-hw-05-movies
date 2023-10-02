@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchMovie } from 'api/movie-api';
 import TrendingMovie from 'components/TrendingMovie/TrendingMovie';
+import Loader from 'components/Loader/Loader';
 
 const MoviePage = () => {
   const [movie, setmovie] = useState([]);
@@ -34,7 +35,8 @@ const MoviePage = () => {
   return (
     <main>
       <SearchMovieForm />
-      <TrendingMovie movie={movie} />
+      {isLoading && <Loader />}
+      {movie && <TrendingMovie movie={movie} />}
     </main>
   );
 };

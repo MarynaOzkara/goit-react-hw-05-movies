@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import { FormWrap, Form, Input, SearchBtn } from './SearchMovieForm.styled';
 
 const SearchMovieForm = () => {
   const [, setSearchParams] = useSearchParams();
@@ -13,17 +14,17 @@ const SearchMovieForm = () => {
     setSearchParams({ query: query });
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
+    <FormWrap>
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="text"
           name="query"
           autoFocus
           placeholder="Search movie ..."
         />
-        <button type="submit">Search</button>
-      </form>
-    </>
+        <SearchBtn type="submit">Search</SearchBtn>
+      </Form>
+    </FormWrap>
   );
 };
 export default SearchMovieForm;

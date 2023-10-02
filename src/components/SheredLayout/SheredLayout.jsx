@@ -6,13 +6,13 @@ import Loader from 'components/Loader/Loader';
 const SheredLayout = () => {
   return (
     <>
+      <Header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+        </nav>
+      </Header>
       <Container>
-        <Header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/movies">Movies</Link>
-          </nav>
-        </Header>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

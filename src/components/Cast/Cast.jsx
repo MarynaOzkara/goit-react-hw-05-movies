@@ -2,6 +2,14 @@ import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/movie-api';
+import {
+  ActorsWrap,
+  ActorsList,
+  ActorItem,
+  ActorImg,
+  InfoList,
+  InfoItem,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -25,33 +33,33 @@ const Cast = () => {
     fetchMovieCast();
   }, [movieId]);
   return (
-    <div>
+    <ActorsWrap>
       {isLoading && <Loader />}
-      <ul>
+      <ActorsList>
         {actors.length === 0 ? (
           <div>There is no information about actors</div>
         ) : (
           actors.map(({ cast_id, original_name, character, profile_path }) => (
-            <li key={cast_id}>
-              <img
+            <ActorItem key={cast_id}>
+              <ActorImg
                 src={`https://image.tmdb.org/t/p/w500${profile_path}`}
                 alt={original_name}
               />
-              <ul>
-                <li>
+              <InfoList>
+                <InfoItem>
                   <h4>Actor:</h4>
                   <p>{original_name}</p>
-                </li>
-                <li>
+                </InfoItem>
+                <InfoItem>
                   <h4>Character:</h4>
                   <p>{character}</p>
-                </li>
-              </ul>
-            </li>
+                </InfoItem>
+              </InfoList>
+            </ActorItem>
           ))
         )}
-      </ul>
-    </div>
+      </ActorsList>
+    </ActorsWrap>
   );
 };
 export default Cast;
