@@ -8,16 +8,18 @@ import HomePage from 'pages/HomePage';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SheredLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="movies" element={<MoviesPage />} />
-        <Route path="movies/:movieId" element={<MoviePageById />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Review />} />
+    <>
+      <Routes>
+        <Route path="/" element={<SheredLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="movies/:movieId" element={<MoviePageById />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Review />} />
+          </Route>
         </Route>
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 };
 export default App;

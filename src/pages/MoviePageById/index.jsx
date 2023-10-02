@@ -24,7 +24,7 @@ const MoviePageById = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const location = useLocation();
-  const from = location.state?.from ?? '/';
+  const from = location.state ?? '/';
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,9 +44,8 @@ const MoviePageById = () => {
     fetchMoviesDetails();
   }, [movieId]);
   const handleClickBackBtn = () => {
-    console.log(from);
-    // navigate(-1);
     navigate(from);
+    // console.log(from);
   };
   const { original_title, genres, overview, release_date, poster_path } =
     movieDetails;
@@ -82,10 +81,14 @@ const MoviePageById = () => {
           <h3>Aditional information</h3>
           <ul>
             <li>
-              <Link to="cast">Cast</Link>
+              <Link to="cast" state={from}>
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to="reviews">Review</Link>
+              <Link to="reviews" state={from}>
+                Review
+              </Link>
             </li>
           </ul>
         </AdditionalWrap>

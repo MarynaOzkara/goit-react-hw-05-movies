@@ -3,10 +3,10 @@ import { MovieItem } from './TrendingMovieItem.styled';
 
 const TrendingMovieItem = ({ title, id }) => {
   const location = useLocation();
-  //   console.log(location);
+  // console.log(location);
   return (
     <MovieItem>
-      <Link to={`movies/${id}`} state={{ from: location }}>
+      <Link to={`movies/${id}`} state={location}>
         {title}
       </Link>
     </MovieItem>

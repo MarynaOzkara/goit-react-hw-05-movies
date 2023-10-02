@@ -1,21 +1,20 @@
-import { Outlet } from "react-router-dom";
-import { Container, Header, Link } from "./SheredLayout.styled";
-
+import { Outlet } from 'react-router-dom';
+import { Container, Header, Link } from './SheredLayout.styled';
 
 const SheredLayout = () => {
-    return (
-        <>
+  return (
+    <>
+      <Container>
         <Header>
-            <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/movies'>Movies</Link>
-            </nav>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/movies">Movies</Link>
+          </nav>
         </Header>
-        <Container>
-            <Outlet/>
-        </Container>
-        </>
-            
-    )
-}
+
+        <Outlet />
+      </Container>
+    </>
+  );
+};
 export default SheredLayout;

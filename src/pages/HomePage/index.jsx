@@ -35,7 +35,7 @@ const HomePage = () => {
     <main>
       <Title>Trending today</Title>
       {isLoading && <Loader />}
-      <TrendingMovie trendingMovie={trendingMovie} />
+      <TrendingMovie movie={trendingMovie} />
     </main>
   );
 };

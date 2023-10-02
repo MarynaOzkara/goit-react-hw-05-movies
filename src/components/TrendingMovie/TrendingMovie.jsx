@@ -1,18 +1,12 @@
-import TrendingMovieItem from "./TrendingMovieItem";
+import TrendingMovieItem from './TrendingMovieItem';
 
-const TrendingMovie = ({trendingMovie}) => {
-    return(
-        <ul>{
-            trendingMovie.map(({id, title}) => (
-                <TrendingMovieItem 
-                  key={id}
-                  title={title}
-                  id={id}
-                />
-            ))
-            }
-            
-        </ul>
-    )
-}
+const TrendingMovie = ({ movie }) => {
+  return (
+    <ul>
+      {movie.map(({ id, title }) => (
+        <TrendingMovieItem key={id} title={title} id={id} />
+      ))}
+    </ul>
+  );
+};
 export default TrendingMovie;
