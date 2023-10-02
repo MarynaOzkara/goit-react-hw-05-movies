@@ -64,7 +64,11 @@ const MoviePageById = () => {
 
           <MainWrap>
             <Poster
-              src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                  : `https://place-hold.it/300x455?text=No%20Poster%20Image&fontsize=18`
+              }
               alt={original_title}
             />
             <div>

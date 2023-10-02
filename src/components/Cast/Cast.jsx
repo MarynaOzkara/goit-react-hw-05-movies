@@ -45,7 +45,7 @@ const Cast = () => {
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                    : `https://place-hold.it/200x300/5b5b5b/ffffff.jpeg&text=Image&fontsize=18`
+                    : `https://place-hold.it/200x300?text=No%20Actor%20Image&fontsize=18`
                 }
                 alt={original_name}
               />
