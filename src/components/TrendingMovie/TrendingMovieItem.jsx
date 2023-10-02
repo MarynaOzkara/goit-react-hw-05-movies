@@ -6,7 +6,7 @@ const TrendingMovieItem = ({ title, id }) => {
   // console.log(location);
   return (
     <MovieItem>
-      <Link to={`movies/${id}`} state={location}>
+      <Link to={`/movies/${id}`} state={location}>
         {title}
       </Link>
     </MovieItem>

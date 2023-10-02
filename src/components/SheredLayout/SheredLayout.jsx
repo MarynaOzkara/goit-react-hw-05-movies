@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link } from './SheredLayout.styled';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 const SheredLayout = () => {
   return (
@@ -11,8 +13,9 @@ const SheredLayout = () => {
             <Link to="/movies">Movies</Link>
           </nav>
         </Header>
-
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </Container>
     </>
   );
