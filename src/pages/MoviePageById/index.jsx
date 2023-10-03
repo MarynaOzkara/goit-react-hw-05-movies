@@ -14,6 +14,7 @@ import {
 } from 'components/App.styled';
 
 import Loader from 'components/Loader/Loader';
+import { Suspense } from 'react';
 
 const MoviePageById = () => {
   const { movieId } = useParams();
@@ -100,7 +101,9 @@ const MoviePageById = () => {
               </li>
             </ul>
           </AdditionalWrap>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </MovieDetailsWrap>
       )}
     </main>
